@@ -19,7 +19,7 @@
     }
 
     &__welcome {
-        margin-bottom: 30px;
+        margin-bottom: 15px;
 
         &-title {
             color: variables.$text-color;
@@ -38,8 +38,16 @@
         flex-direction: column;
 
         &-input {
-            margin-bottom: 15px;
+            margin-top: 15px;
 
+            &--error{ 
+                border: 1.5px solid variables.$error-color;
+            }
+
+        }
+
+        &-button {
+            margin-top: 15px;
         }
     }
 
@@ -53,5 +61,11 @@
         &:hover {
             color: variables.$text-color;
         }
+    }
+
+    &__error {
+        color: variables.$error-color;
+        font-size: 12px;
+        margin-top: 5px;
     }
 }

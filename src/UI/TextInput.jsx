@@ -1,4 +1,4 @@
-const TextInput = ({ type = 'text', placeholder = '', value, onChange, className = '' }) => {
+const TextInput = ({ type = 'text', placeholder = '', value, onChange, className = '', ...rest }) => {
     return (
         <input
             type={type}
@@ -6,6 +6,7 @@ const TextInput = ({ type = 'text', placeholder = '', value, onChange, className
             value={value}
             onChange={onChange}
             className={`ui-textinput ${className}`}
+            {...rest}
         />
     )
 }

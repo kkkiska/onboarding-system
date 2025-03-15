@@ -11,4 +11,9 @@
     &:hover {
         background: variables.$color-primary-hover;
     }
+
+    &:disabled {
+        background: #ccc; 
+        cursor: not-allowed; 
+    }
 }
