@@ -1,0 +1,9 @@
+@use '../abstracts/variables';
+
+body {
+    font-family: variables.$font-family;
+}
+
+button {
+    cursor: pointer;
+}

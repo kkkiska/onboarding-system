@@ -1,0 +1,12 @@
+@use '../abstracts/variables';
+
+.ui-textinput {
+    padding: 10px;
+    border-radius: variables.$border-radius-small;
+    color: variables.$text-color;
+    font-size: variables.$font-size-base;
+    
+    &::placeholder {
+        color: variables.$indirect-text-color;
+    }
+}

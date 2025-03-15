@@ -1,0 +1,26 @@
+@use '../abstracts/variables';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+  }
+  
+  a {
+    color: variables.$text-color
+  }
+  
+  button {
+    border: none;
+    background-color: transparent;
+  }
+  
+  li {
+    list-style: none;
+  }
+
+  input {
+    border: none;
+    outline: none;
+  }

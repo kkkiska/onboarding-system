@@ -1,0 +1,8 @@
+@use '../abstracts/variables';
+
+.ui-plate {
+    background: variables.$plate-background;
+    backdrop-filter: blur(10px);
+    border-radius: variables.$border-radius;
+    box-shadow: variables.$plate-shadow;
+}

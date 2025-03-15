@@ -1,0 +1,57 @@
+@use '../abstracts/variables';
+
+.login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: variables.$gradient-background;
+
+    &__plate {
+        padding: 40px;
+        width: 350px;
+        text-align: center;
+    }
+
+    &__logo {
+        height: 90px;
+        margin-bottom: 20px;
+    }
+
+    &__welcome {
+        margin-bottom: 30px;
+
+        &-title {
+            color: variables.$text-color;
+            font-size: variables.$font-size-title;
+            margin-bottom: 10px;
+        }
+
+        &-subttile { 
+            color: variables.$indirect-text-color;
+            font-size: variables.$font-size-indirect;
+        }
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+
+        &-input {
+            margin-bottom: 15px;
+
+        }
+    }
+
+    &__link {
+        color: variables.$indirect-text-color;
+        font-size: variables.$font-size-indirect;
+        margin-top: 15px;
+        cursor: pointer;
+        transition: .3s;
+
+        &:hover {
+            color: variables.$text-color;
+        }
+    }
+}
