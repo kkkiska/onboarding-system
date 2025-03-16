@@ -4,13 +4,19 @@ import Button from '../UI/Button';
 import Plate from '../UI/Plate';
 import TextInput from '../UI/TextInput';
 import logo from '../assets/images/logo.png'
-import { useCallback } from 'react';
+import { useState } from 'react';
+import { useContext } from 'react';
+import { AuthContext } from '../context/AuthContext';
+import api from '../utils/api';
+import LoginCache from '../utils/LoginCache';
 
 const Login = () => {
-    console.log('login')
     const navigate = useNavigate();
     const { register, handleSubmit, formState: { errors } } = useForm();
     const emailDomain = import.meta.env.VITE_EMAIL_DOMAIN;
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState('');
+    const { login } = useContext(AuthContext);
 
     const validateEmail = (value) => {
         const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
@@ -26,9 +32,29 @@ const Login = () => {
         return true; 
     };
 
-    const submitForm = (data) => {
-        console.log(data);
-        navigate('/home');
+    const submitForm = async (data) => {
+        setLoading(true);
+        setError('');
+        
+        if (LoginCache.isCached(data.email, data.password)) {
+            setError('Неверные данные уже были отправлены ранее');
+            setLoading(false);
+            return;
+        }
+
+        try {
+            const response = await api.post('/login', data);
+
+            if (response.data.token) {
+                login(response.data.token);
+                navigate('/home');
+            }
+        } catch (err) {
+            LoginCache.addToCache(data.email, data.password);
+            setError(err.response?.data?.error || 'Произошла ошибка при входе');
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (
@@ -79,7 +105,10 @@ const Login = () => {
                     {errors.password && (
                         <p className="login__error">{errors.password.message}</p>
                     )}
-                    <Button type="submit" className='login__form-button' disabled={errors.password || errors.email}>Войти</Button>
+                    <Button type="submit" className='login__form-button' disabled={errors.password || errors.email || loading}>{loading ? 'Загрузка...' : 'Войти'}</Button>
+                    {error && (
+                        <p className="login__error">{error}</p>
+                    )}
                 </form>
                 <p className="login__link">Забыли пароль?</p>
                 <p className="login__link">Получить приглашение</p>
