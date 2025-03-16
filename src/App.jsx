@@ -1,5 +1,5 @@
 import { AuthProvider } from './context/AuthContext'; 
-import { Navigate, Route, Routes } from 'react-router';
+import { Route, Routes } from 'react-router';
 import Home  from './pages/Home'
 import Login from './pages/Login';
 import NotFoundPage from './pages/NotFoundPage';
@@ -23,7 +23,7 @@ function App() {
               <Home />
             </ProtectedRoute>
           }
-        />
+        /> 
         <Route path='*' element={<NotFoundPage />}/>
       </Routes>
     </AuthProvider>
