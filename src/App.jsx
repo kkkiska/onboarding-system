@@ -1,10 +1,9 @@
 import { AuthProvider } from './context/AuthContext'; 
-import { Route, Routes } from 'react-router';
+import { Navigate, Route, Routes } from 'react-router';
 import Home  from './pages/Home'
 import Login from './pages/Login';
 import NotFoundPage from './pages/NotFoundPage';
 import ProtectedRoute from './routes/ProtectedRoute';
-import RootRedirect from './routes/RootRedirect';
 import PublicRoute from './routes/PublicRoute';
 
 function App() {
@@ -12,7 +11,7 @@ function App() {
   return (
     <AuthProvider>
       <Routes>
-        <Route path='/' element={<RootRedirect />} />
+        <Route path='/' element={<Navigate to="/home"/>} />
         <Route element={<PublicRoute />}>
           <Route path="/login" element={<Login />} />
         </Route>
