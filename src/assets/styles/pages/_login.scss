@@ -5,8 +5,8 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: variables.$gradient-background;
-
+    background: variables.$gradient-background no-repeat;
+    background-size: cover;
     &__plate {
         padding: 40px;
         width: 350px;
