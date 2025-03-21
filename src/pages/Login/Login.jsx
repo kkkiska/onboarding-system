@@ -1,16 +1,17 @@
 import { useNavigate } from 'react-router';
 import { useForm } from 'react-hook-form';
-import Button from '../UI/Button';
-import Plate from '../UI/Plate';
-import TextInput from '../UI/TextInput';
-import logo from '../assets/images/logo.png'
+import Button from '../../UI/Button/Button';
+import Plate from '../../UI/Plate/Plate';
+import TextInput from '../../UI/TextInput/TextInput';
+import logo from '../../assets/images/logo.png'
 import { useState } from 'react';
 import { useContext } from 'react';
-import { AuthContext } from '../context/AuthContext';
-import api from '../utils/api';
-import LoginCache from '../utils/LoginCache';
-import { validateEmail } from '../utils/validators';
-import LoginLimitTimer from '../components/LoginLimitTimer';
+import { AuthContext } from '../../context/AuthContext';
+import api from '../../utils/api';
+import LoginCache from '../../utils/LoginCache';
+import { validateEmail } from '../../utils/validators';
+import LoginLimitTimer from '../../components/LoginLimitTimer';
+import styles from './Login.module.scss'
 
 const Login = () => {
     const navigate = useNavigate();
@@ -60,18 +61,18 @@ const Login = () => {
     const isButtonDisabled = errors.password || errors.email || loading || error.code.includes('Too Many Attempts');
 
     return (
-        <div className="login">
-            <Plate className="login__plate">
-                <img className='login__logo' src={logo} alt="Логотип NTEC - onboarding system" />
-                <div className="login__welcome">
-                    <h1 className="login__welcome-title">Добро пожаловать!</h1>
-                    <p className="login__welcome-subtitle">Вход в онбординговую систему</p>
+        <div className={styles["login"]}>
+            <Plate className={styles["login__plate"]}>
+                <img className={styles['login__logo']} src={logo} alt="Логотип NTEC - onboarding system" />
+                <div className={styles["login__welcome"]}>
+                    <h1 className={styles["login__welcome-title"]}>Добро пожаловать!</h1>
+                    <p className={styles["login__welcome-subtitle"]}>Вход в онбординговую систему</p>
                 </div>
-                <form className="login__form" onSubmit={handleSubmit(submitForm)} noValidate>
+                <form className={styles["login__form"]} onSubmit={handleSubmit(submitForm)} noValidate>
                     <TextInput
                         type="email"
                         placeholder="Email"
-                        className={`login__form-input ${errors.email ? 'login__form-input--error' : ''}`}
+                        className={`${styles['login__form-input']} ${errors.email ? 'login__form-input--error' : ''}`}
                         {...register('email', {
                             required: 'Email обязателен',
                             validate: validateEmail,
@@ -86,12 +87,12 @@ const Login = () => {
                         })}
                     />
                     {errors.email && (
-                        <p className="login__error">{errors.email.message}</p>
+                        <p className={styles["login__error"]}>{errors.email.message}</p>
                     )}
                     <TextInput
                         type="password"
                         placeholder="Пароль"
-                        className={`login__form-input ${errors.password ? 'login__form-input--error' : ''}`}
+                        className={`${styles['login__form-input']} ${errors.password ? 'login__form-input--error' : ''}`}
                         {...register('password', {
                             required: 'Пароль обязателен',
                             minLength: {
@@ -105,16 +106,16 @@ const Login = () => {
                         })}
                     />
                     {errors.password && (
-                        <p className="login__error">{errors.password.message}</p>
+                        <p className={styles["login__error"]}>{errors.password.message}</p>
                     )}
-                    <Button type="submit" className='login__form-button' disabled={isButtonDisabled}>{loading ? 'Загрузка...' : 'Войти'}</Button>
+                    <Button type="submit" className={styles['login__form-button']} disabled={isButtonDisabled}>{loading ? 'Загрузка...' : 'Войти'}</Button>
                     {showTimer && <LoginLimitTimer initialTime={60} onTimerEnd={handleTimerEnd} />}
                     {error.message && !showTimer && (
-                        <p className="login__error">{error.message}</p>
+                        <p className={styles["login__error"]}>{error.message}</p>
                     )}
                 </form>
-                <p className="login__link">Забыли пароль?</p>
-                <p className="login__link">Получить приглашение</p>
+                <p className={styles["login__link"]}>Забыли пароль?</p>
+                <p className={styles["login__link"]}>Получить приглашение</p>
             </Plate>
         </div>
     );

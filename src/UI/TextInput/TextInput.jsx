@@ -1,3 +1,5 @@
+import styles from './TextInput.module.scss'
+
 const TextInput = ({ type = 'text', placeholder = '', value, onChange, className = '', ...rest }) => {
     return (
         <input
@@ -5,7 +7,7 @@ const TextInput = ({ type = 'text', placeholder = '', value, onChange, className
             placeholder={placeholder}
             value={value}
             onChange={onChange}
-            className={`ui-textinput ${className}`}
+            className={`${styles['textinput']} ${className}`}
             {...rest}
         />
     )

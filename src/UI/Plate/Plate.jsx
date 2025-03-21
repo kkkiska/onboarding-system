@@ -1,6 +1,8 @@
+import styles from './Plate.module.scss'
+
 const Plate = ({ children, className = '' }) => {
     return (
-        <div className={`ui-plate ${className}`}>
+        <div className={`${styles['plate']} ${className}`}>
             {children}
         </div>
     );
