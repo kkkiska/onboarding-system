@@ -5,6 +5,7 @@ import Login from './pages/Login/Login';
 import NotFoundPage from './pages/NotFoundPage';
 import ProtectedRoute from './routes/ProtectedRoute';
 import PublicRoute from './routes/PublicRoute';
+import About from './pages/About/About';
 
 function App() {
 
@@ -15,15 +16,11 @@ function App() {
         <Route element={<PublicRoute />}>
           <Route path="/login" element={<Login />} />
         </Route>
-        <Route
-          path="/home"
-          element={
-            <ProtectedRoute>
-              <Home />
-            </ProtectedRoute>
-          }
-        /> 
-        <Route path='*' element={<NotFoundPage />}/>
+        <Route element={<ProtectedRoute />}>
+          <Route path='/home' element={<Home />} />
+          <Route path='/about' element={<About />} />
+        </Route>
+        <Route path='*' element={<NotFoundPage />} />
       </Routes>
     </AuthProvider>
   )

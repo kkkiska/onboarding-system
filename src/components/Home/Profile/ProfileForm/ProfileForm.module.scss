@@ -1,0 +1,41 @@
+@use '../../../../assets/styles/abstracts/variables';
+
+.form {
+    margin-top: 5px;
+    &-group {
+        margin-top: 15px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &-label {
+        margin-bottom: 10px;
+        color: variables.$indirect-text-color;
+        font-size: 12px;
+    }
+
+    &-input {
+        height: 40px;
+        border-radius: variables.$border-radius;
+        padding: 10px;
+        font-size: 12px;
+    }
+
+    &-textarea {
+        height: 90px;
+        border-radius: variables.$border-radius;
+        padding: 10px;
+        line-height: 22px
+    }
+
+    &-button {
+        width: 115px;
+        height: 50px;
+        &_container {
+            margin-top: 40px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+    }
+}

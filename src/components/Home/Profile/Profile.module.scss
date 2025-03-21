@@ -1,0 +1,47 @@
+@use '../../../assets/styles/abstracts/variables';
+
+.profile {
+    width: 506px;
+    height: 576px;
+    padding: 40px;
+
+    &-user {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        &_wrapper {
+            display: flex;
+        }
+
+        &_avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50px;
+        }
+
+        &_exit {
+            height: 25px;
+        }
+
+        &_info {
+            margin-left: 30px;
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+
+            &-name {
+                font-size: 20px;
+            }
+
+            &-subinfo {
+                font-size: 12px;
+                color: variables.$indirect-text-color;
+                margin-top: 3px;
+            }
+        }
+
+        &_exit {
+            cursor: pointer;
+        }
+    }
+}

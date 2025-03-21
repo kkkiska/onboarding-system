@@ -10,7 +10,7 @@ import { AuthContext } from '../../context/AuthContext';
 import api from '../../utils/api';
 import LoginCache from '../../utils/LoginCache';
 import { validateEmail } from '../../utils/validators';
-import LoginLimitTimer from '../../components/LoginLimitTimer';
+import LoginLimitTimer from '../../components/Login/LoginLimitTimer';
 import styles from './Login.module.scss'
 
 const Login = () => {
