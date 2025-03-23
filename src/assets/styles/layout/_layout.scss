@@ -13,3 +13,11 @@ body {
 button {
     cursor: pointer;
 }
+
+.layout {
+    padding: 50px;
+    min-width: 1400px;
+    background: variables.$gradient-background no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+}

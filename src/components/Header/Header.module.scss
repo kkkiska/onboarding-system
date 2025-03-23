@@ -1,0 +1,33 @@
+@use '../../assets/styles/abstracts/variables';
+
+.header {
+    display: flex;
+
+    &__logo {
+        width: 90px;
+    }
+
+    &__nav {
+        margin: 0 50px;
+        width: 785px;
+        height: 75px;
+        display: flex;
+        padding: 0 37px;
+        justify-content: space-between;
+        align-items: center;
+
+        &-item {
+            box-sizing: border-box;
+        }
+        &-item:hover {
+            font-weight: bold;
+            color: variables.$color-primary;  
+        }
+    }
+
+
+    &__nav a.active {
+        font-weight: bold;
+        color: variables.$color-primary;
+    }
+}

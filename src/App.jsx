@@ -6,6 +6,10 @@ import NotFoundPage from './pages/NotFoundPage';
 import ProtectedRoute from './routes/ProtectedRoute';
 import PublicRoute from './routes/PublicRoute';
 import About from './pages/About/About';
+import Layout from './routes/Layout';
+import Tasks from './pages/Tasks/Tasks';
+import Departments from './pages/Departments/Departments';
+import Documents from './pages/Documents/Documents';
 
 function App() {
 
@@ -18,9 +22,14 @@ function App() {
         </Route>
         <Route element={<ProtectedRoute />}>
           <Route path='/home' element={<Home />} />
-          <Route path='/about' element={<About />} />
+          <Route element={<Layout />}>
+            <Route path='/about' element={<About />} />
+            <Route path='/tasks' element={<Tasks />} />
+            <Route path='/departments' element={<Departments />} /> 
+            <Route path='/documents' element={<Documents />} />
+            <Route path='*' element={<NotFoundPage />} />
+          </Route>
         </Route>
-        <Route path='*' element={<NotFoundPage />} />
       </Routes>
     </AuthProvider>
   )
