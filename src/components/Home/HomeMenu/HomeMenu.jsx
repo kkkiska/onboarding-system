@@ -1,17 +1,18 @@
 import styles from "./HomeMenu.module.scss"
 import HomeMenuCard from "./HomeMenuCard"
+import { cards } from "../../../mocks/mock-data"
 
-const HomeMenu = ({menuCards}) => {
-    console.log(menuCards)
+const HomeMenu = () => {
  return (
     <nav className={styles["navigation"]}>
         
-        {menuCards.map(card =>  (
+        {cards.map(({ title, subtitle, img, path }, key) =>  (
             <HomeMenuCard 
-                title={card.title}
-                subtitle={card.subtitle}
-                img={card.img}
-                path={card.path}
+                key={key}
+                title={title}
+                subtitle={subtitle}
+                img={img}
+                path={path}
             />
         ))}
     </nav>

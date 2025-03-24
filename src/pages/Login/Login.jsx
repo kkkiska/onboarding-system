@@ -20,6 +20,7 @@ const Login = () => {
     const [error, setError] = useState({ message: '', code: '' });
     const [showTimer, setShowTimer] = useState(false);
     const { login } = useContext(AuthContext);
+    const ATTEMPTS_ERROR = 'Too Many Attempts'
 
     const submitForm = async (data) => {
         setLoading(true);
@@ -43,7 +44,7 @@ const Login = () => {
             const errorMessage = err.response?.data?.error || 'Произошла ошибка при входе';
             const errorCode = err.response?.data?.message || 'Unknown';
 
-            if (errorCode.includes('Too Many Attempts')) {
+            if (errorCode.includes(ATTEMPTS_ERROR)) {
                 setShowTimer(true);
             }
 
@@ -58,7 +59,7 @@ const Login = () => {
         setError({ message: '', code: '' }); 
     };
 
-    const isButtonDisabled = errors.password || errors.email || loading || error.code.includes('Too Many Attempts');
+    const isButtonDisabled = errors.password || errors.email || loading || error.code.includes(ATTEMPTS_ERROR);
 
     return (
         <div className={styles["login"]}>

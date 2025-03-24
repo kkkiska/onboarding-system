@@ -1,34 +1,13 @@
 import Button from '../../../../UI/Button/Button'
-import styles from './ProfileForm.module.scss'
+import ProfileFormInput from './ProfileFormInput'
+import styles from './ProfileForm.module.scss'  
 
 const ProfileForm = () => {
     return (
         <form className={styles["form"]}>
-            <div className={styles["form-group"]}>
-                <label 
-                    className={styles["form-label"]} 
-                    htmlFor="phoneNumber">
-                    Номер телефона
-                </label>
-                <input
-                    className={styles["form-input"]}
-                    type="tel"
-                    id="phoneNumber"
-                />
-            </div>
-
-            <div className={styles["form-group"]}>
-                <label 
-                    className={styles["form-label"]}
-                    htmlFor="birthDate">
-                    Дата рождения
-                </label>
-                <input
-                    className={styles["form-input"]}
-                    type="date"
-                    id="birthDate"
-                />
-            </div>
+            
+            <ProfileFormInput id="phoneNumber" type="tel" />
+            <ProfileFormInput id="birthDate" type="date" />
 
             <div className={styles["form-group"]}>
                 <label 
@@ -43,6 +22,7 @@ const ProfileForm = () => {
                     placeholder="Расскажите немного о себе..."
                 />
             </div>
+
             <div className={styles["form-button_container"]}>
                 <Button className={styles['form-button']} type="submit">Сохранить</Button>
             </div>

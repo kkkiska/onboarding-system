@@ -2,15 +2,16 @@ import company from '../assets/images/company.svg'
 import tasks from '../assets/images/tasks.svg'
 import team from '../assets/images/team.svg'
 import doc from '../assets/images/doc.svg'
+import users from '../assets/images/users.svg'
 
-export class User {
+class User {
     constructor(role) {
         this.role = JSON.parse(JSON.stringify(roles[role]));
         this.role.name = role;
     }
 
     getCards() {
-        return this.role.cardsId.map(cardId => cards[cardId]) 
+        return this.role.cardsId.map(cardId => allCards[cardId]) 
     }
 
     getUserInfo() {
@@ -24,26 +25,26 @@ export class User {
 }
 
 const roles = {
-    'trainee': {
+    trainee: {
         id: 0,
         cardsId: [0, 1, 2, 3] 
     },
-    'mentor': { 
+    mentor: { 
         id: 1,
         cardsId: [0, 6, 2, 3]
     
     },
-    'head': {
+    head: {
         id: 2,
         cardsId: [0, 7, 2, 3]
     }, 
-    'hr': {
+    hr: {
         id: 3,
         cardsId: [0, 5, 4, 3]
     }
 }
 
-const cards = [
+const allCards = [
     {
         title: 'О компании',
         subtitle: 'История, миссия и ценности компании',
@@ -77,19 +78,24 @@ const cards = [
     {
         title: 'Пользователи',
         subtitle: 'Просмотр всех пользователей и управление ими',
-        img: 'users',
+        img: users,
         path: '/users'
     },
     {
         title: 'Подопечные',
         subtitle: 'Просмотр своих подопечных, котроль выполнения задач',
-        img: 'users',
+        img: users,
         path: '/users'
     },
     {
         title: 'Менторы и новички',
         subtitle: 'Просмотр своих подопечных, котроль выполнения задач',
-        img: 'users',
+        img: users,
         path: '/users'
     }
 ]
+
+const currentUser = new User('trainee')
+
+export const cards = currentUser.getCards()
+export const userInfo = currentUser.getUserInfo()

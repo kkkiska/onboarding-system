@@ -4,9 +4,10 @@ import exit from '../../../assets/images/exit.svg'
 import Plate from "../../../UI/Plate/Plate";
 import styles from "./Profile.module.scss";
 import ProfileForm from "./ProfileForm/ProfileForm";
+import { userInfo } from "../../../mocks/mock-data";
 
-const Profile = ({ profileInfo }) => {
-    const {surname, name, position, email} = profileInfo
+const Profile = () => {
+    const {surname, name, position, email} = userInfo
     return (
         <Plate className={styles['profile']}>
             <div className={styles['profile-user']}>

@@ -12,7 +12,6 @@ import Departments from './pages/Departments/Departments';
 import Documents from './pages/Documents/Documents';
 
 function App() {
-
   return (
     <AuthProvider>
       <Routes>
