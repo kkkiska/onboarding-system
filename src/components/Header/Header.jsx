@@ -6,16 +6,15 @@ import { getNavLinkClass } from '../../utils/classNames';
 import { cards } from '../../mocks/mock-data'
 
 const Header = () => {
-    console.log(cards)
-
     return (
         <header className={styles['header']}>
             <Link to='/home'>
                 <img src={logo} className={styles["header__logo"]} />
             </Link>
             <Plate className={styles["header__nav"]}>
-                {cards.map(({ path, title }) => 
+                {cards.map(({ path, title }, key) => 
                     <NavLink 
+                        key={key}
                         to={path}
                         className={(props) =>
                             getNavLinkClass(props, styles["header__nav-item"], styles["active"])

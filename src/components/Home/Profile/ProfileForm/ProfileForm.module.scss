@@ -18,14 +18,25 @@
         height: 40px;
         border-radius: variables.$border-radius;
         padding: 10px;
-        font-size: 12px;
+        font-size: 14px;
+        background-color: white;
     }
 
     &-textarea {
         height: 90px;
         border-radius: variables.$border-radius;
         padding: 10px;
-        line-height: 22px
+        line-height: 22px;
+        font-size: 14px;
+        background-color: white;
+
+        &::placeholder {
+            color: variables.$indirect-text-color;
+        }
+    }
+
+    &-value {
+        font-size: 14px; 
     }
 
     &-button {
