@@ -27,7 +27,7 @@ const Profile = () => {
                 </div>
             </div>
             <div className={styles["profile-info"]}>
-                <ProfileForm editable={editable} />
+                <ProfileForm editable={editable} setEditable={setEditable} />
             </div>
         </Plate>
     );

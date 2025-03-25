@@ -1,6 +1,6 @@
 import styles from './ProfileForm.module.scss'
 
-const ProfileFormInput = ({ id, type, label, value, editable, isArea = false }) => {
+const ProfileFormInput = ({ id, type, label, value, editable, isArea = false, onChange }) => {
 
     if (editable) {
         return (
@@ -20,6 +20,7 @@ const ProfileFormInput = ({ id, type, label, value, editable, isArea = false }) 
                         rows="3"
                         placeholder="Расскажите немного о себе..."
                         value={value}
+                        onChange={(e) => onChange(e.target.value)}
                     />
                 : 
                     <input
@@ -27,6 +28,7 @@ const ProfileFormInput = ({ id, type, label, value, editable, isArea = false }) 
                         type={type}
                         id={id}
                         value={value}
+                        onChange={(e) => onChange(e.target.value)}
                     />
                 }
                 
@@ -40,13 +42,13 @@ const ProfileFormInput = ({ id, type, label, value, editable, isArea = false }) 
                 ?
                     <div className={styles["form-textarea"]} title='Нажмите на карандаш выше, чтобы редактировать'> 
                         <div className={styles["form-value"]}>
-                            {value}
+                            {value || 'Не указано'}
                         </div>
                     </div> 
                 :
                     <div className={styles["form-input"]} title='Нажмите на карандаш выше, чтобы редактировать'>
                         <div className={styles["form-value"]}>
-                            {value}
+                            {value || 'Не указано'}
                         </div>
                     </div> 
                 } 
