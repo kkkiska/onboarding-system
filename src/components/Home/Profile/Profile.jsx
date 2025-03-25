@@ -22,8 +22,21 @@ const Profile = () => {
                     </div>
                 </div>
                 <div className="profile-user_actions">
-                    <img className={styles["profile-user_action"]} onClick={() => setEditable(!editable)} src={edit} alt="Редактировать профиль" title='Редактировать профиль' />
-                    <img className={styles["profile-user_action"]} src={exit} alt="Выход" title='Выход' />
+                    <button 
+                        className={styles["profile-user_action"]} 
+                        onClick={() => setEditable(!editable)}
+                        aria-label={editable ? "Отменить редактирование" : "Редактировать профиль"}
+                        title={editable ? "Отменить редактирование" : "Редактировать профиль"}
+                    >
+                        <img src={edit} alt="" aria-hidden="true" />
+                    </button>
+                    <button 
+                        className={styles["profile-user_action"]} 
+                        aria-label="Выйти из системы"
+                        title="Выйти из системы"
+                    >
+                        <img src={exit} alt="" aria-hidden="true" />
+                    </button>
                 </div>
             </div>
             <div className={styles["profile-info"]}>
