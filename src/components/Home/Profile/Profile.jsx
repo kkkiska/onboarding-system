@@ -1,4 +1,3 @@
-import avatar from '../../../assets/images/avatar.jpg'
 import exit from '../../../assets/images/exit.svg'
 import edit from '../../../assets/images/edit.svg'
 import Plate from "../../../UI/Plate/Plate";
@@ -8,7 +7,7 @@ import { userInfo } from "../../../mocks/mock-data";
 import { useState } from 'react';
 
 const Profile = () => {
-    const {surname, name, position, email} = userInfo
+    const {surname, name, position, email, avatar} = userInfo
     const [editable, setEditable] = useState(false)
     return (
         <Plate className={styles['profile']}>

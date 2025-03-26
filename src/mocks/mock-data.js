@@ -3,6 +3,7 @@ import tasks from '../assets/images/tasks.svg'
 import team from '../assets/images/team.svg'
 import doc from '../assets/images/doc.svg'
 import users from '../assets/images/users.svg'
+import avatar from '../assets/images/avatar.jpg'
 
 class User {
     constructor(role) {
@@ -19,7 +20,8 @@ class User {
             surname: 'Петров',
             name: 'Иван',
             position: 'Программист-стажер',
-            email: 'ipetrov@ntec.by'
+            email: 'ipetrov@ntec.by',
+            avatar: avatar
         }
     }
 }
