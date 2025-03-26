@@ -1,4 +1,4 @@
-import Plate from '../../UI/Plate/Plate';
+import Plate from '../../components/UI/Plate/Plate';
 import logo from '../../assets/images/logo.png'
 import styles from './Home.module.scss'
 import Profile from '../../components/Home/Profile/Profile';

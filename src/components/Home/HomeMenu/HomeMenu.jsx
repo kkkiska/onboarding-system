@@ -6,15 +6,7 @@ const HomeMenu = () => {
  return (
     <nav className={styles["navigation"]}>
         
-        {cards.map(({ title, subtitle, img, path }, key) =>  (
-            <HomeMenuCard 
-                key={key}
-                title={title}
-                subtitle={subtitle}
-                img={img}
-                path={path}
-            />
-        ))}
+        {cards.map((card, key) =>  <HomeMenuCard key={key} {...card} />)}
     </nav>
  )
 }

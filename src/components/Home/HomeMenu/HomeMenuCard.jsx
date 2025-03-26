@@ -1,6 +1,6 @@
 import { Link } from "react-router"
-import Plate from "../../../UI/Plate/Plate"
 import styles from "./HomeMenu.module.scss"
+import Plate from "../../UI/Plate/Plate"
 
 const HomeMenuCard = ({title, subtitle, img, path}) => {
     return (

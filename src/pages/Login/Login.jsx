@@ -1,7 +1,6 @@
 import { useNavigate } from 'react-router';
 import { useForm } from 'react-hook-form';
-import Button from '../../UI/Button/Button';
-import Plate from '../../UI/Plate/Plate';
+import Plate from '../../components/UI/Plate/Plate';
 import TextInput from '../../UI/TextInput/TextInput';
 import logo from '../../assets/images/logo.png'
 import { useState } from 'react';
@@ -12,6 +11,8 @@ import LoginCache from '../../utils/LoginCache';
 import { validateEmail } from '../../utils/validators';
 import LoginLimitTimer from '../../components/Login/LoginLimitTimer';
 import styles from './Login.module.scss'
+import { ATTEMPTS_ERROR } from '../../utils/constants';
+import BlueButton from '../../components/UI/Button/BlueButton';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -20,7 +21,6 @@ const Login = () => {
     const [error, setError] = useState({ message: '', code: '' });
     const [showTimer, setShowTimer] = useState(false);
     const { login } = useContext(AuthContext);
-    const ATTEMPTS_ERROR = 'Too Many Attempts'
 
     const submitForm = async (data) => {
         setLoading(true);
@@ -109,7 +109,7 @@ const Login = () => {
                     {errors.password && (
                         <p className={styles["login__error"]}>{errors.password.message}</p>
                     )}
-                    <Button type="submit" className={styles['login__form-button']} disabled={isButtonDisabled}>{loading ? 'Загрузка...' : 'Войти'}</Button>
+                    <BlueButton type="submit" className={styles['login__form-button']} disabled={isButtonDisabled}>{loading ? 'Загрузка...' : 'Войти'}</BlueButton>
                     {showTimer && <LoginLimitTimer initialTime={60} onTimerEnd={handleTimerEnd} />}
                     {error.message && !showTimer && (
                         <p className={styles["login__error"]}>{error.message}</p>

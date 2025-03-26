@@ -1,1 +1,118 @@
 @use '../../assets/styles/abstracts/variables';
+
+.page-title {
+    margin-left: 70px;
+    margin-top: 50px;
+    margin-bottom: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    color: variables.$color-primary;
+}
+
+.about {
+    width: 100%;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__content {
+        position: relative;
+        width: 1070px;
+        display: flex;
+    }
+    
+    &__container {
+        margin: 0 auto;
+        width: 645px;
+    }
+
+    &__title {
+        font-size: 34px;
+        color: variables.$color-primary;
+        font-weight: bold;
+        margin-bottom: 40px;
+    }
+
+    &__banner {
+        width: 785px;
+        margin-bottom: 50px;
+    }
+
+    &__text {
+        font-family: serif;
+        line-height: 35px;
+        font-size: 16px;
+
+        &-title {
+            line-height: 40px;
+            margin-top: 32px;
+            font-size: 28px;
+            font-weight: bold;
+            color: variables.$color-primary;
+        }
+    }
+
+    &__section {
+            padding-top: 5px;
+        
+        &:target {
+            animation: highlight 1s ease;
+        }
+      }
+
+      @keyframes highlight {
+            0% { background-color: rgba(variables.$color-primary, 0.1); }
+            100% { background-color: transparent; }
+      }
+
+}
+
+.navigation {
+    position: sticky;
+    top: 50px;
+    align-self: flex-start;
+
+    &-item {
+        width: 157px;
+        height: 30px;
+        margin-bottom: 12px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        color: variables.$indirect-text-color;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &-link {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        color: variables.$indirect-text-color;
+        text-decoration: none;
+        transition: color 0.3s ease;
+        
+        &:hover,
+        &:focus,
+        &.active {
+            outline: none;
+            color: black;
+        }
+        
+        &:hover::after,
+        &:focus::after,
+        &.active::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background-color: variables.$color-primary;
+        }
+    }
+}
