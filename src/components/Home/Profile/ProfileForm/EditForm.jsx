@@ -4,7 +4,9 @@ import FormTextarea from './FormTextarea';
 import BlueButton from '../../../UI/Button/BlueButton';
 
 const EditForm = ({ formData, handleChange, handleSubmit }) => {
+
   const dateForInput = formData.birthDate?.split('.').reverse().join('-');
+  
   return (
     <form className={styles['form']} onSubmit={handleSubmit}>
       <FormInput

@@ -26,7 +26,6 @@ const About = () => {
 
     return(
         <>
-            <div className={styles["page-title"]}>О компании</div>
             <Plate className={styles["about"]}>
                 <div className={styles["about__container"]}>
                     <div className={styles["about__title"]}>Национальный центр обмена трафиком</div>

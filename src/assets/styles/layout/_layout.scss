@@ -25,3 +25,87 @@ button {
     background-size: cover;
     min-height: 100vh;
 }
+
+.page-title {
+    margin-left: 70px;
+    margin-top: 50px;
+    margin-bottom: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    color: variables.$color-primary;
+}
+
+
+// Позже перенесу
+.tasks {
+    height: 540px;
+    padding: 30px 70px;
+}
+
+.stats {
+
+    &-panel {
+        display: flex;
+        font-size: 16px;
+    }
+
+    &-item {
+        margin-right: 35px;
+
+        &:last-child {
+            margin-right: 0px;
+        }
+    }
+
+}
+
+.tabs {
+    margin-top: 50px;
+    margin-bottom: 25px;
+}
+
+.tab {
+    margin-right: 30px;
+    font-size: 16px;
+    color: variables.$indirect-text-color;
+
+    &:last-child {
+        margin-right: 0px;
+    }
+    &.active {
+        font-size: 24px;
+        color: variables.$color-primary;
+        font-weight: bold;
+    }
+}
+
+.tasks-list {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    overflow: auto;
+    &:last-child {
+        max-height: 270px
+    }
+}
+
+.tasks-head {
+    display: flex;
+}
+
+.task-card {
+    height: 50px;
+    align-items: center;
+    display: flex;
+    border-bottom: 1px solid variables.$indirect-text-color;
+}
+
+.task {
+    &-name {
+        width: 330px;
+    }
+    &-creation {
+        width: 210px;
+    }
+}

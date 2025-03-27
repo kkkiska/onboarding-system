@@ -97,6 +97,51 @@ const allCards = [
     }
 ]
 
+export const initialTasks = [
+    {
+        name: 'Задача 1',
+        description: 'Описание 1',
+        dateCreation: '19.03.2025',
+        dateDeadline: '25.03.2025',
+        status: 'inWork'
+    },
+    {
+        name: 'Задача 2',
+        description: 'Описание 1',
+        dateCreation: '19.03.2025',
+        dateDeadline: '25.03.2025',
+        status: 'waiting'
+    },
+    {
+        name: 'Задача 3',
+        description: 'Описание 1',
+        dateCreation: '19.03.2025',
+        dateDeadline: '25.03.2025',
+        status: 'overdue'
+    },
+    {
+        name: 'Задача 4',
+        description: 'Описание 1',
+        dateCreation: '19.03.2025',
+        dateDeadline: '25.03.2025',
+        status: 'completed'
+    },
+    {
+        name: 'Задача 5',
+        description: 'Описание 1',
+        dateCreation: '19.03.2025',
+        dateDeadline: '25.03.2025',
+        status: 'inWork'
+    },
+    {
+        name: 'Задача 5',
+        description: 'Описание 1',
+        dateCreation: '19.03.2025',
+        dateDeadline: '25.03.2025',
+        status: 'inWork'
+    },
+]
+
 const currentUser = new User('trainee')
 
 export const cards = currentUser.getCards()
