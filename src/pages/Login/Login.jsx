@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router';
 import { useForm } from 'react-hook-form';
 import Plate from '../../components/UI/Plate/Plate';
-import TextInput from '../../UI/TextInput/TextInput';
+import TextInput from '../../components/UI/TextInput/TextInput';
 import logo from '../../assets/images/logo.png'
 import { useState } from 'react';
 import { useContext } from 'react';
@@ -73,6 +73,7 @@ const Login = () => {
                     <TextInput
                         type="email"
                         placeholder="Email"
+                        error={errors.email}
                         className={`${styles['login__form-input']} ${errors.email ? 'login__form-input--error' : ''}`}
                         {...register('email', {
                             required: 'Email обязателен',
@@ -87,12 +88,10 @@ const Login = () => {
                             },
                         })}
                     />
-                    {errors.email && (
-                        <p className={styles["login__error"]}>{errors.email.message}</p>
-                    )}
                     <TextInput
                         type="password"
                         placeholder="Пароль"
+                        error={errors.password}
                         className={`${styles['login__form-input']} ${errors.password ? 'login__form-input--error' : ''}`}
                         {...register('password', {
                             required: 'Пароль обязателен',
@@ -106,9 +105,6 @@ const Login = () => {
                             },
                         })}
                     />
-                    {errors.password && (
-                        <p className={styles["login__error"]}>{errors.password.message}</p>
-                    )}
                     <BlueButton type="submit" className={styles['login__form-button']} disabled={isButtonDisabled}>{loading ? 'Загрузка...' : 'Войти'}</BlueButton>
                     {showTimer && <LoginLimitTimer initialTime={60} onTimerEnd={handleTimerEnd} />}
                     {error.message && !showTimer && (

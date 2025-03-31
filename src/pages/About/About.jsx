@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import aboutImg from "../../assets/images/about.png"
 import styles from './About.module.scss'
 import Plate from "../../components/UI/Plate/Plate";
+import AboutNavItem from "./AboutNavItem";
 const About = () => {
     const [activeSection, setActiveSection] = useState('history');
     const description = 'Республиканское унитарное предприятие «Национальный центр обмена трафиком» – одна из лидирующих динамично развивающихся организаций, созданная в целях развития в Республике Беларусь современной инфраструктуры сети передачи данных на основе внедрения новых информационно-коммуникационных технологий, привлечения в эту сферу отечественных и иностранных инвестиций, повышения качества и снижения стоимости оказываемых услуг передачи данных.'
@@ -35,9 +36,7 @@ const About = () => {
                     <nav className={styles["navigation"]}>
                         <ul className={styles["navigation-list"]}>
                             {sections.map(({ name, id }) => (
-                                <li className={styles["navigation-item"]}>
-                                    <a href={`#${id}`} className={`${styles["navigation-link"]} ${activeSection === id ? 'active' : ''}`}>{name}</a>
-                                </li>
+                                <AboutNavItem key={id} name={name} id={id} activeSection={activeSection}/>
                             ))}
                             
                         </ul>

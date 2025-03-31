@@ -142,6 +142,25 @@ export const initialTasks = [
     },
 ]
 
+export const statusTabs = [
+    { 
+        key: 'inWork', 
+        label: 'В работе' 
+    },
+    { 
+        key: 'waiting', 
+        label: 'Ожидающие контроля' 
+    },
+    { 
+        key: 'overdue', 
+        label: 'Просроченные' 
+    },
+    { 
+        key: 'completed', 
+        label: 'Завершенные' 
+    }
+  ];
+
 const currentUser = new User('trainee')
 
 export const cards = currentUser.getCards()
