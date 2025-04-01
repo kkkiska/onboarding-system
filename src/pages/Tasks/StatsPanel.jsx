@@ -1,4 +1,4 @@
-import { initialTasks, statusTabs } from "../../mocks/mock-data"
+import { initialTasks } from "../../mocks/mock-data"
 
 const StatsPanel = () => {
     const counts = initialTasks.reduce((acc, task) => {
