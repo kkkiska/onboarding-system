@@ -1,9 +1,9 @@
 import { useState } from "react";
 import Plate from "../../components/UI/Plate/Plate"
 import { initialTasks, statusTabs } from "../../mocks/mock-data"
-import StatsPanel from "./StatsPanel";
-import Tabs from "./Tabs";
-import TasksList from "./TasksList";
+import StatsPanel from "../../components/Tasks/StatsPanel";
+import Tabs from "../../components/Tasks/Tabs";
+import TasksList from "../../components/Tasks/TasksList";
 
 const Tasks = () => {
 
