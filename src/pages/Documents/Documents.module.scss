@@ -1,0 +1,25 @@
+.documents {
+    padding: 75px;
+    display: flex;
+}
+
+.doc {
+    margin-right: 50px;
+    width: 120px;
+    text-align: center;
+    &-plate {
+        width: 120px;
+        height: 150px;
+        background-color: white;
+        border-radius: 5px;
+        box-shadow: 3px 4px 50px 0px #0000000D;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &-title {
+        margin-top: 10px;
+        font-size: 12px;
+    }
+}

@@ -1,9 +1,12 @@
 import AboutDepartment from "../../components/Departments/AboutDepartment"
-import Plate from "../../components/UI/Plate/Plate"
+import Structure from "../../components/Departments/Structure"
 
 const Departments = () => {
     return (
-        <AboutDepartment />
+        <>
+            <AboutDepartment />
+            <Structure />
+        </>
     )
 }
 

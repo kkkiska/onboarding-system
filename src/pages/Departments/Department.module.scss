@@ -38,3 +38,140 @@
         font-family: serif;
     }
 }
+
+.structure {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+
+    &-title {
+        font-size: 28px;
+        font-weight: bold;
+        color: variables.$color-primary;
+        margin-bottom: 45px;
+    }
+
+    &-content {
+        display: flex;
+    }
+
+    &-list {
+        margin-right: 75px;
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        &-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+    }
+}
+
+.head {
+    width: 270px;
+    height: 360px;
+    border-radius: 20px;
+    background-color: white;
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    padding: 35px;
+
+    .card-info {
+        margin-top: 20px;
+        text-align: center;
+
+        &-name {
+            font-size: 20px;
+        }
+
+        &-addition {
+            margin-top: 15px;
+            font-size: 14px;
+        }
+    }
+
+    .avatar {
+        width: 135px;
+        height: 135px;
+    }
+}
+
+.mentor {
+    width: 340px;
+    height: 140px;
+    border-radius: 20px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 26px;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    .card-info {
+        margin-left: 15px;
+
+        &-name {
+            font-size: 20px;
+        }
+
+        &-addition {
+            margin-top: 5px;
+            font-size: 12px;
+        }
+    }
+
+    .avatar {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+.other {
+    width: 420px;
+    height: 90px;
+    border-radius: 20px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 26px;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    .card-info {
+        margin-left: 30px;
+
+        &-name {
+            font-size: 18px;
+        }
+        &-addition {
+            margin-top: 5px;
+            font-size: 12px;
+        }
+    }
+
+    .avatar {
+        width: 70px;
+        height: 70px;
+    }
+}
+
+.card-info-addition {
+    color: variables.$indirect-text-color;
+
+    &:last-child {
+        margin-top: 5px;
+    }
+}
+
