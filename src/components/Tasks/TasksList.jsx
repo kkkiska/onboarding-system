@@ -1,6 +1,6 @@
 import Task from "./Task";
 
-const TasksList = ({ tasks }) => (
+const TasksList = ({ tasks, onTaskClick }) => (
     <div className="tasks-list">
       <div className="tasks-head">
         <div className="task-name">Название задачи</div>
@@ -10,7 +10,11 @@ const TasksList = ({ tasks }) => (
       
       {tasks.length > 0 ? (
         tasks.map((task, key) => (
-          <Task key={key} {...task} />
+          <Task 
+            key={key} 
+            {...task} 
+            onClick={() => onTaskClick(task)} 
+          />
         ))
       ) : (
         <p className="no-tasks">Нет задач в этой категории</p>

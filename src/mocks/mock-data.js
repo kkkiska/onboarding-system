@@ -100,7 +100,7 @@ const allCards = [
 export const initialTasks = [
     {
         name: 'Задача 1',
-        description: 'Описание 1',
+        description: 'Это описание первой задачи. Задача очень интересная. Задача крутая. Задачаааааа',
         dateCreation: '19.03.2025',
         dateDeadline: '25.03.2025',
         status: 'inWork'

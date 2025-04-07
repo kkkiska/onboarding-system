@@ -1,15 +1,30 @@
-import { useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import Plate from "../../components/UI/Plate/Plate"
 import { initialTasks, statusTabs } from "../../mocks/mock-data"
 import StatsPanel from "../../components/Tasks/StatsPanel";
 import Tabs from "../../components/Tasks/Tabs";
 import TasksList from "../../components/Tasks/TasksList";
+import Modal from "../../components/Modal";
+import TaskModal from "../../components/Tasks/TaskModal";
 
 const Tasks = () => {
+    const [activeTab, setActiveTab] = useState('inWork');
+    const [selectedTask, setSelectedTask] = useState(null);
 
-      const [activeTab, setActiveTab] = useState('inWork');
+    const filteredTasks = useMemo(
+        () => initialTasks.filter(task => task.status === activeTab),
+        [activeTab]
+    );
 
-      const filteredTasks = initialTasks.filter(task => task.status === activeTab);
+    const handleTabChange = useCallback((tab) => setActiveTab(tab), []);
+    
+    const handleTaskClick = useCallback((task) => {
+        setSelectedTask(task);
+    }, []);
+    
+    const handleModalClose = useCallback(() => {
+        setSelectedTask(null);
+    }, []);
 
     return (
         <>
@@ -18,10 +33,11 @@ const Tasks = () => {
                 <Tabs 
                     tabs={statusTabs} 
                     activeTab={activeTab} 
-                    onChange={setActiveTab} 
+                    onChange={handleTabChange} 
                 />
-                <TasksList tasks={filteredTasks} />
+                <TasksList tasks={filteredTasks} onTaskClick={handleTaskClick} />
             </Plate>
+            <TaskModal task={selectedTask} onClose={handleModalClose} />
         </>
     )
 }

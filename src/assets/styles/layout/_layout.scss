@@ -104,8 +104,58 @@ button {
 .task {
     &-name {
         width: 330px;
+
+        &>span {
+            cursor: pointer;
+        }
     }
     &-creation {
         width: 210px;
+    }
+
+    &-modal {
+        width: 500px;
+        min-height: 150px;
+
+        &-name {
+            margin-bottom: 10px;
+        }
+
+        &-descr {
+            margin-bottom: 10px;
+        }
+
+        &-date {
+            font-size: 14px;
+            color: variables.$indirect-text-color;
+        }
+
+        &-interaction {
+            margin-top: 30px;
+        }
+    }
+}
+
+.modal {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    &-bg {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.3);
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    &-close {
+        align-self: flex-end;
+        margin-bottom: 10px;
+        font-size: 20px;
+        font-weight: bold;
     }
 }
