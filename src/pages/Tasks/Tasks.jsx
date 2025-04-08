@@ -4,16 +4,16 @@ import { initialTasks, statusTabs } from "../../mocks/mock-data"
 import StatsPanel from "../../components/Tasks/StatsPanel";
 import Tabs from "../../components/Tasks/Tabs";
 import TasksList from "../../components/Tasks/TasksList";
-import Modal from "../../components/Modal";
 import TaskModal from "../../components/Tasks/TaskModal";
 
 const Tasks = () => {
     const [activeTab, setActiveTab] = useState('inWork');
     const [selectedTask, setSelectedTask] = useState(null);
+    const [tasks, setTasks] = useState(initialTasks);
 
     const filteredTasks = useMemo(
-        () => initialTasks.filter(task => task.status === activeTab),
-        [activeTab]
+        () => tasks.filter(task => task.status === activeTab),
+        [tasks, activeTab]
     );
 
     const handleTabChange = useCallback((tab) => setActiveTab(tab), []);
@@ -26,10 +26,19 @@ const Tasks = () => {
         setSelectedTask(null);
     }, []);
 
+    const updateTaskStatus = useCallback((taskId, newStatus) => {
+        setTasks(prevTasks => 
+            prevTasks.map(task => 
+                task.name === taskId ? { ...task, status: newStatus } : task
+            )
+        );
+        handleModalClose(); 
+    }, [handleModalClose]);
+
     return (
         <>
             <Plate className="tasks">
-                <StatsPanel />
+                <StatsPanel tasks={tasks} />
                 <Tabs 
                     tabs={statusTabs} 
                     activeTab={activeTab} 
@@ -37,7 +46,12 @@ const Tasks = () => {
                 />
                 <TasksList tasks={filteredTasks} onTaskClick={handleTaskClick} />
             </Plate>
-            <TaskModal task={selectedTask} onClose={handleModalClose} />
+            <TaskModal 
+                task={selectedTask} 
+                onClose={handleModalClose} 
+                onComplete={() => updateTaskStatus(selectedTask.name, 'waiting')}
+                onReturn={() => updateTaskStatus(selectedTask.name, 'inWork')}
+            />
         </>
     )
 }

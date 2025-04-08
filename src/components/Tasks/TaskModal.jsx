@@ -2,13 +2,9 @@ import Modal from "../Modal";
 import BlueButton from "../UI/Button/BlueButton";
 import { statusTabs } from "../../mocks/mock-data";
 
-const TaskModal = ({ task, onClose }) => {
+const TaskModal = ({ task, onClose, onComplete, onReturn }) => {
     if (!task) return null;
     console.log(task)
-
-    const CompleteTask = () => {
-        onClose()
-    }
 
     return (
       <Modal closeModal={onClose}>
@@ -18,9 +14,9 @@ const TaskModal = ({ task, onClose }) => {
           <div className="task-modal-date">Дата постановки: {task.dateCreation}</div>
           <div className="task-modal-date">Крайний срок: {task.dateDeadline}</div>
           <div className="task-modal-interaction">
-            {(task.status === 'inWork' || task.status === 'overdue') 
-                ? <BlueButton onClick={CompleteTask}>Завершить</BlueButton>
-                : <div>Статус: {statusTabs.filter((tab) => tab.key === task.status)[0].label}</div>}
+            {(task.status === 'inWork' || task.status === 'overdue') && <BlueButton onClick={onComplete}>Завершить</BlueButton>}
+            {task.status === 'waiting' && <BlueButton onClick={onReturn}>Вернуть в работу</BlueButton>}
+            {task.status === 'completed' && <div>Задача завершена</div>}
           </div>
         </div>
       </Modal>

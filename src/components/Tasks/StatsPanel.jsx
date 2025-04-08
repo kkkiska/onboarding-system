@@ -1,7 +1,5 @@
-import { initialTasks } from "../../mocks/mock-data"
-
-const StatsPanel = () => {
-    const counts = initialTasks.reduce((acc, task) => {
+const StatsPanel = ({ tasks }) => {
+    const counts = tasks.reduce((acc, task) => {
       acc.total++;
       acc[task.status] = (acc[task.status] || 0) + 1;
       return acc;
