@@ -29,7 +29,7 @@ const Tasks = () => {
     const updateTaskStatus = useCallback((taskId, newStatus) => {
         setTasks(prevTasks => 
             prevTasks.map(task => 
-                task.name === taskId ? { ...task, status: newStatus } : task
+                task.id === taskId ? { ...task, status: newStatus } : task
             )
         );
         handleModalClose(); 
@@ -49,8 +49,8 @@ const Tasks = () => {
             <TaskModal 
                 task={selectedTask} 
                 onClose={handleModalClose} 
-                onComplete={() => updateTaskStatus(selectedTask.name, 'waiting')}
-                onReturn={() => updateTaskStatus(selectedTask.name, 'inWork')}
+                onComplete={() => updateTaskStatus(selectedTask.id, 'waiting')}
+                onReturn={() => updateTaskStatus(selectedTask.id, 'inWork')}
             />
         </>
     )
