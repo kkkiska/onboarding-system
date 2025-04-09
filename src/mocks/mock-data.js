@@ -224,6 +224,53 @@ export const statusTabs = [
     ]
   };
 
+  export const documentsData = [
+    {
+      id: 1,
+      title: "Должностная инструкция.docx",
+      type: "document",
+    },
+    {
+      id: 2,
+      title: "Правила внутреннего распорядка",
+      type: "link",
+      url: "",
+    },
+    {
+      id: 3,
+      title: "Регламент работы с клиентами.pdf",
+      type: "document",
+    },
+    {
+      id: 4,
+      title: "Корпоративный портал",
+      type: "link",
+      url: "",
+    },
+    {
+      id: 5,
+      title: "Шаблон договора.docx",
+      type: "document",
+    },
+    {
+      id: 6,
+      title: "База знаний",
+      type: "link",
+      url: "",
+    },
+    {
+      id: 7,
+      title: "Политика безопасности.pdf",
+      type: "document",
+    },
+    {
+      id: 8,
+      title: "Облачное хранилище",
+      type: "link",
+      url: "",
+    }
+  ];
+
 const currentUser = new User('trainee')
 
 export const cards = currentUser.getCards()

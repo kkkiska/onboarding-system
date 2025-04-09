@@ -1,12 +1,15 @@
 .documents {
     padding: 75px;
     display: flex;
+    flex-wrap: wrap;
 }
 
 .doc {
     margin-right: 50px;
+    margin-top: 30px;
     width: 120px;
     text-align: center;
+    cursor: pointer;
     &-plate {
         width: 120px;
         height: 150px;
