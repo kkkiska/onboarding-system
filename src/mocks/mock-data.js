@@ -167,6 +167,63 @@ export const statusTabs = [
     }
   ];
 
+  export const roleTitles = {
+    head: 'Руководитель',
+    mentors: 'Менторы',
+    others: 'Остальные сотрудники'
+  };
+
+  export const employeesData = {
+    head: [
+      {
+        name: "Шевцов Алексей",
+        position: "Начальник отдела программирования",
+        email: "ashevcov@ntec.by",
+        role: "head",
+        avatar: ""
+      }
+    ],
+    mentors: [
+      {
+        name: "Иванова Мария",
+        position: "Старший разработчик",
+        email: "ivanova@ntec.by",
+        role: "mentor",
+        avatar: ""
+      },
+      {
+        name: "Петров Сергей",
+        position: "Ведущий программист",
+        email: "petrov@ntec.by",
+        role: "mentor",
+        avatar: ""
+      }
+    ],
+    others: [
+      {
+        name: "Сидорова Анна",
+        position: "Младший разработчик",
+        email: "sidorova@ntec.by",
+        role: "other",
+        avatar: ""
+      },
+      {
+        name: "Козлов Дмитрий",
+        position: "Тестировщик",
+        email: "kozlov@ntec.by",
+        role: "other",
+        avatar: ""
+      },
+      {
+        name: "Николаева Елена",
+        position: "Аналитик",
+        email: "nikolaeva@ntec.by",
+        role: "other",
+        avatar: ""
+      }
+    ]
+  };
+
 const currentUser = new User('trainee')
 
 export const cards = currentUser.getCards()

@@ -1,14 +1,14 @@
 import styles from "../../pages/Departments/Department.module.scss"
 import avatar from "../../assets/images/avatar.png"
 
-const Card = ({ type }) => {
+const Card = ({ employee, onUserClick }) => {
     return (
-        <div className={styles[`${type}`]}>
-            <img src={avatar} alt="" className={styles["avatar"]} />
+        <div onClick={() => onUserClick(employee)} className={styles[`${employee.role}`]}>
+            <img src={avatar} alt={employee.name} className={styles["avatar"]} />
             <div className={styles["card-info"]}>
-                <div className={styles["card-info-name"]}>Шевцов Алексей</div>
-                <div className={styles["card-info-addition"]}>Начальник отдела программирования</div>
-                <div className={styles["card-info-addition"]}>ashevcov@ntec.by</div>
+                <div className={styles["card-info-name"]}>{employee.name}</div>
+                <div className={styles["card-info-addition"]}>{employee.position}</div>
+                <div className={styles["card-info-addition"]}>{employee.email}</div>
             </div>
         </div>
     );

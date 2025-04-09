@@ -1,6 +1,5 @@
 import Modal from "../Modal";
 import BlueButton from "../UI/Button/BlueButton";
-import { statusTabs } from "../../mocks/mock-data";
 
 const TaskModal = ({ task, onClose, onComplete, onReturn }) => {
     if (!task) return null;

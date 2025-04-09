@@ -136,6 +136,31 @@ button {
     }
 }
 
+.user {
+    &-modal {
+        width: 400px;
+        height: 300px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    &-avatar {
+        width: 120px;
+        height: 120px;
+    }
+    
+    &-name {
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+
+    &-additional {
+        color: variables.$indirect-text-color;
+        font-size: 15px;
+        line-height: 20px;
+    }
+}
+
 .modal {
     padding: 30px;
     display: flex;
@@ -147,7 +172,7 @@ button {
         width: 100vw;
         height: 100vh;
         background-color: rgba(0, 0, 0, 0.3);
-        position: absolute;
+        position: fixed;
         top: 0;
         left: 0;
     }

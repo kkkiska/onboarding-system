@@ -81,6 +81,7 @@
     align-items: center;
     display: flex;
     padding: 35px;
+    cursor: pointer;
 
     .card-info {
         margin-top: 20px;
@@ -111,6 +112,7 @@
     align-items: center;
     margin-bottom: 30px;
     padding: 26px;
+    cursor: pointer;
 
     &:last-child {
         margin-bottom: 0;
@@ -144,6 +146,7 @@
     align-items: center;
     margin-bottom: 20px;
     padding: 26px;
+    cursor: pointer;
 
     &:last-child {
         margin-bottom: 0;
