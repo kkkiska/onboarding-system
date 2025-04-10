@@ -8,8 +8,9 @@ import PublicRoute from './routes/PublicRoute';
 import About from './pages/About/About';
 import Layout from './routes/Layout';
 import Tasks from './pages/Tasks/Tasks';
-import Departments from './pages/Departments/Departments';
+import DepartmentPage from './pages/Departments/DepartmentPage';
 import Documents from './pages/Documents/Documents';
+import DepartmentsList from './pages/Departments/DepartmentsList';
 
 function App() {
   return (
@@ -24,7 +25,12 @@ function App() {
           <Route element={<Layout />}>
             <Route path='/about' element={<About />} />
             <Route path='/tasks' element={<Tasks />} />
-            <Route path='/departments' element={<Departments />} /> 
+            <Route path='/departments'>
+              <Route index element={<DepartmentsList />} />
+              <Route element={<ProtectedRoute departmentCheck />}>
+                <Route path=':departmentId' element={<DepartmentPage />} />
+              </Route>
+            </Route>
             <Route path='/documents' element={<Documents />} />
             <Route path='*' element={<NotFoundPage />} />
           </Route>

@@ -1,11 +1,13 @@
 import { useState } from "react";
+import { useParams } from 'react-router-dom';
 import AboutDepartment from "../../components/Departments/AboutDepartment"
 import Structure from "../../components/Departments/Structure"
 import UserModal from "../../components/Departments/UserModal"
+import { departments } from "../../mocks/mock-data";
 
-const Departments = () => {
+const DepartmentPage = () => {
     const [selectedUser, setSelectedUser] = useState(null);
-
+    const { departmentId } = useParams();
     const handleUserClick = (user) => {
         setSelectedUser(user);
     };
@@ -16,7 +18,7 @@ const Departments = () => {
 
     return (
         <>
-            <AboutDepartment />
+            <AboutDepartment departmentName={departments[departmentId].name}/>
             <Structure onUserClick={handleUserClick} />
             <UserModal 
                 user={selectedUser} 
@@ -26,4 +28,4 @@ const Departments = () => {
     )
 }
 
-export default Departments
+export default DepartmentPage

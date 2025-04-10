@@ -1,10 +1,11 @@
 import { useCallback, useMemo, useState } from "react";
 import Plate from "../../components/UI/Plate/Plate"
-import { initialTasks, statusTabs } from "../../mocks/mock-data"
+import { statusTabs } from "../../mocks/mock-data"
 import StatsPanel from "../../components/Tasks/StatsPanel";
 import Tabs from "../../components/Tasks/Tabs";
 import TasksList from "../../components/Tasks/TasksList";
 import TaskModal from "../../components/Tasks/TaskModal";
+import { initialTasks } from "../../mocks/initialTasks";
 
 const Tasks = () => {
     const [activeTab, setActiveTab] = useState('inWork');

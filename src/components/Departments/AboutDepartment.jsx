@@ -2,11 +2,11 @@ import Plate from "../UI/Plate/Plate"
 import styles from "../../pages/Departments/Department.module.scss"
 import teamImg from "../../assets/images/team.png"
 
-const AboutDepartment = () => {
+const AboutDepartment = ({ departmentName }) => {
     return (
         <Plate className={styles["about"]}>
             <div className={styles["title"]}>
-                Отдел информационной безопасности
+                {departmentName}
             </div>
             <div className={styles["content"]}>
                 <img src={teamImg} alt="" />

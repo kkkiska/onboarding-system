@@ -7,12 +7,24 @@ import avatar from '../assets/images/avatar.jpg'
 
 class User {
     constructor(role) {
-        this.role = JSON.parse(JSON.stringify(roles[role]));
-        this.role.name = role;
+        try {
+          this.role = JSON.parse(JSON.stringify(roles[role]));
+          this.role.name = role;
+        } catch {
+          throw console.error(`invalid role value - ${role}`);
+        }
     }
 
     getCards() {
         return this.role.cardsId.map(cardId => allCards[cardId]) 
+    }
+
+    isHR() {
+      return this.role.name === 'hr';
+    }
+  
+    isTrainee() {
+      return this.role.name === 'trainee';
     }
 
     getUserInfo() {
@@ -21,7 +33,8 @@ class User {
             name: 'Иван',
             position: 'Программист-стажер',
             email: 'ipetrov@ntec.by',
-            avatar: avatar
+            avatar: avatar,
+            departmentId: 1
         }
     }
 }
@@ -95,57 +108,6 @@ const allCards = [
         img: users,
         path: '/users'
     }
-]
-
-export const initialTasks = [
-    {   
-        id: 0,
-        name: 'Задача 1',
-        description: 'Это описание первой задачи. Задача очень интересная. Задача крутая. Задачаааааа',
-        dateCreation: '19.03.2025',
-        dateDeadline: '25.03.2025',
-        status: 'inWork'
-    },
-    {
-        id: 1,
-        name: 'Задача 2',
-        description: 'Описание 1',
-        dateCreation: '19.03.2025',
-        dateDeadline: '25.03.2025',
-        status: 'waiting'
-    },
-    {
-        id: 2,
-        name: 'Задача 3',
-        description: 'Описание 1',
-        dateCreation: '19.03.2025',
-        dateDeadline: '25.03.2025',
-        status: 'overdue'
-    },
-    {
-        id: 3,
-        name: 'Задача 4',
-        description: 'Описание 1',
-        dateCreation: '19.03.2025',
-        dateDeadline: '25.03.2025',
-        status: 'completed'
-    },
-    {
-        id: 4,
-        name: 'Задача 5',
-        description: 'Описание 1',
-        dateCreation: '19.03.2025',
-        dateDeadline: '25.03.2025',
-        status: 'inWork'
-    },
-    {
-        id: 5,
-        name: 'Задача 5',
-        description: 'Описание 1',
-        dateCreation: '19.03.2025',
-        dateDeadline: '25.03.2025',
-        status: 'inWork'
-    },
 ]
 
 export const statusTabs = [
@@ -271,7 +233,13 @@ export const statusTabs = [
     }
   ];
 
-const currentUser = new User('trainee')
+  export const departments = [
+    { id: 0, name: 'Отдел информационной безопасности' },
+    { id: 1, name: 'Отдел программирования' },
+    { id: 2, name: 'Отдел кадрового делопроизводства' }
+  ];
+
+export const currentUser = new User('trainee')
 
 export const cards = currentUser.getCards()
 export const userInfo = currentUser.getUserInfo()
