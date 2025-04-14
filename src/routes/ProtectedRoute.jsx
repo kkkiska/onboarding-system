@@ -11,10 +11,6 @@ const ProtectedRoute = ({ departmentCheck = false }) => {
         return <Navigate to="/login" />;
     }
 
-    if (departmentCheck && currentUser.isTrainee() && userInfo.departmentId !== parseInt(departmentId)) {
-        return <Navigate to={`/departments/${userInfo.departmentId}`} replace />;
-    }
-
     return <Outlet />;
 };
 

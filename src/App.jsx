@@ -27,9 +27,7 @@ function App() {
             <Route path='/tasks' element={<Tasks />} />
             <Route path='/departments'>
               <Route index element={<DepartmentsList />} />
-              <Route element={<ProtectedRoute departmentCheck />}>
-                <Route path=':departmentId' element={<DepartmentPage />} />
-              </Route>
+              <Route path=':departmentId' element={<DepartmentPage />} />
             </Route>
             <Route path='/documents' element={<Documents />} />
             <Route path='*' element={<NotFoundPage />} />

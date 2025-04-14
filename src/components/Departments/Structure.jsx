@@ -1,13 +1,13 @@
 import Plate from "../UI/Plate/Plate"
 import styles from "../../pages/Departments/Department.module.scss"
 import Card from "./Card"
-import { employeesData, roleTitles } from "../../mocks/mock-data"
+import { roleTitles } from "../../mocks/mock-data"
 
-const Structure = ({ onUserClick }) => {
+const Structure = ({ employees, onUserClick }) => {
     const roleGroups = Object.entries({
-        head: employeesData.head,
-        mentors: employeesData.mentors,
-        others: employeesData.others
+        head: employees.head,
+        mentors: employees.mentors,
+        others: employees.others
       });
     return (
         <Plate className={styles["structure"]}>
