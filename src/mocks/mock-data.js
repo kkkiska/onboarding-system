@@ -254,7 +254,7 @@ export const statusTabs = [
     }
   ];
 
-export const currentUser = new User('trainee')
+export const currentUser = new User('hr')
 
 export const cards = currentUser.getCards()
 export const userInfo = currentUser.getUserInfo()

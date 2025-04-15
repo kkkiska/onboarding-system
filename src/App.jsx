@@ -11,6 +11,7 @@ import Tasks from './pages/Tasks/Tasks';
 import DepartmentPage from './pages/Departments/DepartmentPage';
 import Documents from './pages/Documents/Documents';
 import DepartmentsList from './pages/Departments/DepartmentsList';
+import Users from './pages/Users/Users';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
               <Route index element={<DepartmentsList />} />
               <Route path=':departmentId' element={<DepartmentPage />} />
             </Route>
+            <Route path='/users' element={<Users />} />
             <Route path='/documents' element={<Documents />} />
             <Route path='*' element={<NotFoundPage />} />
           </Route>
