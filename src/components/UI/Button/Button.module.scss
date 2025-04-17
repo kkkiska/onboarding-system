@@ -1,23 +1,23 @@
-@use '../../../assets/styles/abstracts/variables';
+@use "../../../assets/styles/abstracts/variables";
 
 .button {
-    border-radius: 2px;
+  border-radius: 2px;
 
-        &:first-child {
-            margin-right: 30px;
-        }
+  &:first-child {
+    margin-right: 30px;
+  }
 
-        &:hover {
-            opacity: 0.8;
-        }
+  &:hover {
+    opacity: 0.8;
+  }
 
-        &:focus-visible {
-            outline: 2px solid variables.$color-primary;
-            outline-offset: 2px;
-        }
+  &:focus-visible {
+    outline: 2px solid variables.$color-primary;
+    outline-offset: 2px;
+  }
 
-        &:active {
-            transform: scale(0.92);
-            transition: transform 0.1s ease;
-        }
+  &:active {
+    transform: scale(0.92);
+    transition: transform 0.1s ease;
+  }
 }

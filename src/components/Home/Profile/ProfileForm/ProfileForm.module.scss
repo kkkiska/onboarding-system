@@ -1,52 +1,52 @@
-@use '../../../../assets/styles/abstracts/variables';
+@use "../../../../assets/styles/abstracts/variables";
 
 .form {
-    margin-top: 40px;
-    &-group {
-        margin-top: 15px;
-        display: flex;
-        flex-direction: column;
-    }
+  margin-top: 40px;
+  &-group {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+  }
 
-    &-label {
-        margin-bottom: 10px;
-        color: variables.$indirect-text-color;
-        font-size: 12px;
-    }
+  &-label {
+    margin-bottom: 10px;
+    color: variables.$indirect-text-color;
+    font-size: 12px;
+  }
 
-    &-input {
-        height: 40px;
-        border-radius: variables.$border-radius;
-        padding: 10px;
-        font-size: 14px;
-        background-color: white;
-    }
+  &-input {
+    height: 40px;
+    border-radius: variables.$border-radius;
+    padding: 10px;
+    font-size: 14px;
+    background-color: white;
+  }
 
-    &-textarea {
-        height: 90px;
-        border-radius: variables.$border-radius;
-        padding: 10px;
-        line-height: 22px;
-        font-size: 14px;
-        background-color: white;
+  &-textarea {
+    height: 90px;
+    border-radius: variables.$border-radius;
+    padding: 10px;
+    line-height: 22px;
+    font-size: 14px;
+    background-color: white;
 
-        &::placeholder {
-            color: variables.$indirect-text-color;
-        }
+    &::placeholder {
+      color: variables.$indirect-text-color;
     }
+  }
 
-    &-value {
-        font-size: 14px; 
-    }
+  &-value {
+    font-size: 14px;
+  }
 
-    &-button {
-        width: 115px;
-        height: 50px;
-        &_container {
-            margin-top: 40px;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-        }
+  &-button {
+    width: 115px;
+    height: 50px;
+    &_container {
+      margin-top: 40px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
     }
+  }
 }

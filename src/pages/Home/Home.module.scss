@@ -1,68 +1,67 @@
-@use '../../assets/styles/abstracts/variables';
+@use "../../assets/styles/abstracts/variables";
 
 .home {
-    padding: 50px;
-    min-width: 1400px;
-    background: variables.$gradient-background no-repeat;
-    background-size: cover;
-    min-height: 100vh;
-    &__logo {
-        width: 90px;
-        margin-bottom: 30px;
+  padding: 50px;
+  min-width: 1400px;
+  background: variables.$gradient-background no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  &__logo {
+    width: 90px;
+    margin-bottom: 30px;
+  }
 
+  &__content {
+    width: 100%;
+    justify-content: center;
+    display: flex;
+  }
+
+  &__right {
+    margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__greetings {
+    font-size: 50px;
+    padding-top: 40px;
+    padding-bottom: 50px;
+    font-weight: bold;
+    &--primary {
+      color: variables.$color-primary;
+      display: inline-block;
     }
+  }
 
-    &__content {
-        width: 100%;
-        justify-content: center;
-        display: flex;
-    }
+  &__navigation {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 50px;
 
-    &__right {
-        margin-left: 50px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
+    &-button {
+      cursor: pointer;
+      width: 367px;
+      height: 180px;
+      padding: 45px;
+      transition: transform 0.3s ease;
 
-    &__greetings {
-        font-size: 50px;
-        padding-top: 40px;
-        padding-bottom: 50px;
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: variables.$plate-shadow;
+      }
+
+      &-title {
         font-weight: bold;
-        &--primary {
-            color: variables.$color-primary;
-            display: inline-block;
-        }
+        margin: 10px 0;
+      }
+
+      &-subtitle {
+        font-size: 12px;
+        color: variables.$indirect-text-color;
+      }
     }
-
-    &__navigation {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr); 
-        grid-template-rows: repeat(2, 1fr); 
-        gap: 50px; 
-
-        &-button {
-            cursor: pointer;
-            width: 367px;
-            height: 180px;
-            padding: 45px;
-            transition: transform 0.3s ease;
-
-            &:hover {
-                transform: translateY(-5px);
-                box-shadow: variables.$plate-shadow;
-            }
-
-            &-title {
-                font-weight: bold;
-                margin: 10px 0;
-            }
-
-            &-subtitle {
-                font-size: 12px;
-                color: variables.$indirect-text-color;
-            }
-        }
-    }
+  }
 }

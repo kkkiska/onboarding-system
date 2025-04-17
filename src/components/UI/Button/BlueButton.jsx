@@ -1,14 +1,13 @@
-import Button from "./Button"
-import styles from './BlueButton.module.scss'
+import Button from "./Button";
+import styles from "./BlueButton.module.scss";
 
 const BlueButton = (props) => {
-    return (
-        <Button 
-            {...props}
-            className={`${styles['button']} ${props.className || ''}`} 
-        />
-        
-    )
-}
+  return (
+    <Button
+      {...props}
+      className={`${styles["button"]} ${props.className || ""}`}
+    />
+  );
+};
 
-export default BlueButton
+export default BlueButton;

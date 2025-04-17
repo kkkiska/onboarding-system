@@ -1,4 +1,4 @@
-import styles from './ProfileForm.module.scss';
+import styles from "./ProfileForm.module.scss";
 
 const FormTextarea = ({ id, label, value, onChange }) => (
   <div className={styles["form-group"]}>

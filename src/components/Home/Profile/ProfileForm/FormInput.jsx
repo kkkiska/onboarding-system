@@ -1,4 +1,4 @@
-import styles from './ProfileForm.module.scss';
+import styles from "./ProfileForm.module.scss";
 
 const FormInput = ({ id, type, label, value, onChange }) => (
   <div className={styles["form-group"]}>

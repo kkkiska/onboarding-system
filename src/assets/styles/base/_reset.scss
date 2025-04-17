@@ -1,32 +1,32 @@
-@use '../abstracts/variables';
+@use "../abstracts/variables";
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-  }
-  
-  a {
-    color: variables.$text-color
-  }
-  
-  button {
-    border: none;
-    background-color: transparent;
-  }
-  
-  li {
-    list-style: none;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
 
-  input {
-    border: none;
-    outline: none;
-  }
+a {
+  color: variables.$text-color;
+}
 
-  textarea { 
-    outline: none;
-    resize: none;
-    border: none;
-  }
+button {
+  border: none;
+  background-color: transparent;
+}
+
+li {
+  list-style: none;
+}
+
+input {
+  border: none;
+  outline: none;
+}
+
+textarea {
+  outline: none;
+  resize: none;
+  border: none;
+}

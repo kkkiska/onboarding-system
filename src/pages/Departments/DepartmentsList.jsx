@@ -1,8 +1,8 @@
-import { useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { currentUser, departments, userInfo } from '../../mocks/mock-data';
-import Plate from '../../components/UI/Plate/Plate';
-import styles from './DepartmentsList.module.scss'
+import { useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { currentUser, departments, userInfo } from "../../mocks/mock-data";
+import Plate from "../../components/UI/Plate/Plate";
+import styles from "./DepartmentsList.module.scss";
 
 const DepartmentsList = () => {
   const navigate = useNavigate();
@@ -15,11 +15,11 @@ const DepartmentsList = () => {
 
   if (currentUser.isHR()) {
     return (
-      <Plate className={styles['container']}>
-        <ul className={styles['list']}>
-          {departments.map(dept => (
-            <li className={styles['list-item']} key={dept.id}>
-              <Link className={styles['link']} to={`/departments/${dept.id}`}>
+      <Plate className={styles["container"]}>
+        <ul className={styles["list"]}>
+          {departments.map((dept) => (
+            <li className={styles["list-item"]} key={dept.id}>
+              <Link className={styles["link"]} to={`/departments/${dept.id}`}>
                 {dept.name}
               </Link>
             </li>
@@ -32,4 +32,4 @@ const DepartmentsList = () => {
   return null;
 };
 
-export default DepartmentsList
+export default DepartmentsList;

@@ -1,14 +1,15 @@
-import styles from "./HomeMenu.module.scss"
-import HomeMenuCard from "./HomeMenuCard"
-import { cards } from "../../../mocks/mock-data"
+import styles from "./HomeMenu.module.scss";
+import HomeMenuCard from "./HomeMenuCard";
+import { cards } from "../../../mocks/mock-data";
 
 const HomeMenu = () => {
- return (
+  return (
     <nav className={styles["navigation"]}>
-        
-        {cards.map((card, key) =>  <HomeMenuCard key={key} {...card} />)}
+      {cards.map((card, key) => (
+        <HomeMenuCard key={key} {...card} />
+      ))}
     </nav>
- )
-}
+  );
+};
 
-export default HomeMenu
+export default HomeMenu;

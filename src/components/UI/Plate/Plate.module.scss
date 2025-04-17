@@ -1,7 +1,7 @@
-@use '../../../assets/styles/abstracts/variables';
+@use "../../../assets/styles/abstracts/variables";
 
 .plate {
-    background: variables.$plate-background;
-    backdrop-filter: blur(10px);
-    border-radius: variables.$border-radius;
+  background: variables.$plate-background;
+  backdrop-filter: blur(10px);
+  border-radius: variables.$border-radius;
 }

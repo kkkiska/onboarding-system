@@ -1,1 +1,1 @@
-export const ATTEMPTS_ERROR = 'Too Many Attempts';
+export const ATTEMPTS_ERROR = "Too Many Attempts";

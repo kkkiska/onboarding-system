@@ -1,3 +1,3 @@
 export const getNavLinkClass = ({ isActive }, baseClass, activeClass) => {
-    return isActive ? `${baseClass} ${activeClass}` : baseClass;
-  };
+  return isActive ? `${baseClass} ${activeClass}` : baseClass;
+};

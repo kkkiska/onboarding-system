@@ -1,5 +1,5 @@
 // Цвета
-$color-primary: #032F61; // Основной цвет (синий)
+$color-primary: #032f61; // Основной цвет (синий)
 $color-primary-hover: #0653ab; // Цвет при наведении (более светлый синий)
 $text-color: #333333; // Текст основной
 $indirect-text-color: rgba(51, 51, 51, 0.7); // Косвенный текст
@@ -7,10 +7,14 @@ $plate-background: rgba(255, 255, 255, 0.6); // Фон подложки
 $error-color: #ff4d4f;
 
 // Градиенты
-$gradient-background: linear-gradient(135deg, #f5f7fa, #c3cfe2); // Градиент для фона
+$gradient-background: linear-gradient(
+  135deg,
+  #f5f7fa,
+  #c3cfe2
+); // Градиент для фона
 
 // Шрифт
-$font-family: 'Arial', sans-serif; // Основной шрифт
+$font-family: "Arial", sans-serif; // Основной шрифт
 $font-size-base: 16px; // Базовый размер шрифта
 $font-size-title: 24px; // Размер заголовка
 $font-size-indirect: 14px; // Размер подзаголовка

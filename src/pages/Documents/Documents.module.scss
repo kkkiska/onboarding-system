@@ -1,28 +1,28 @@
 .documents {
-    padding: 75px;
-    display: flex;
-    flex-wrap: wrap;
+  padding: 75px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .doc {
-    margin-right: 50px;
-    margin-top: 30px;
+  margin-right: 50px;
+  margin-top: 30px;
+  width: 120px;
+  text-align: center;
+  cursor: pointer;
+  &-plate {
     width: 120px;
-    text-align: center;
-    cursor: pointer;
-    &-plate {
-        width: 120px;
-        height: 150px;
-        background-color: white;
-        border-radius: 5px;
-        box-shadow: 3px 4px 50px 0px #0000000D;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+    height: 150px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 3px 4px 50px 0px #0000000d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-    &-title {
-        margin-top: 10px;
-        font-size: 12px;
-    }
+  &-title {
+    margin-top: 10px;
+    font-size: 12px;
+  }
 }

@@ -1,57 +1,55 @@
-@use '../../assets/styles/abstracts/variables';
+@use "../../assets/styles/abstracts/variables";
 
 .header {
+  display: flex;
+
+  &__logo {
+    width: 90px;
+  }
+
+  &__nav {
+    margin: 0 50px;
+    width: 785px;
+    height: 75px;
     display: flex;
+    padding: 0 37px;
+    justify-content: space-between;
+    align-items: center;
 
-    &__logo {
-        width: 90px;
+    &-item {
+      box-sizing: border-box;
     }
-
-    &__nav {
-        margin: 0 50px;
-        width: 785px;
-        height: 75px;
-        display: flex;
-        padding: 0 37px;
-        justify-content: space-between;
-        align-items: center;
-
-        &-item {
-            box-sizing: border-box;
-        }
-        &-item:hover {
-            font-weight: bold;
-            color: variables.$color-primary;  
-        }
+    &-item:hover {
+      font-weight: bold;
+      color: variables.$color-primary;
     }
+  }
 
-
-    &__nav a.active {
-        font-weight: bold;
-        color: variables.$color-primary;
-    }
-
+  &__nav a.active {
+    font-weight: bold;
+    color: variables.$color-primary;
+  }
 }
 
 .profile {
-    width: 363px;
-    height: 100%;
+  width: 363px;
+  height: 100%;
+  display: flex;
+  padding: 8px 29px;
+  justify-content: space-between;
+
+  &-info {
     display: flex;
-    padding: 8px 29px;
-    justify-content: space-between;
+    align-items: center;
+  }
 
-    &-info {
-        display: flex;
-        align-items: center;
-    }
+  &-avatar {
+    width: 55px;
+    border-radius: calc(55px / 2);
+  }
 
-    &-avatar {
-        width: 55px;
-        border-radius: calc( 55px / 2);
-    }
-
-    &-name {
-        margin-left: 25px;
-        font-size: 16px;
-    }
+  &-name {
+    margin-left: 25px;
+    font-size: 16px;
+  }
 }

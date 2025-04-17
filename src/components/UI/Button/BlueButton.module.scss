@@ -1,19 +1,19 @@
-@use '../../../assets/styles/abstracts/variables';
+@use "../../../assets/styles/abstracts/variables";
 
 .button {
-    padding: 10px;
-    border-radius: variables.$border-radius-small;
-    background: variables.$color-primary;
-    color: white;
-    font-size: variables.$font-size-base;
-    transition: .3s;
+  padding: 10px;
+  border-radius: variables.$border-radius-small;
+  background: variables.$color-primary;
+  color: white;
+  font-size: variables.$font-size-base;
+  transition: 0.3s;
 
-    &:hover {
-        background: variables.$color-primary-hover;
-    }
+  &:hover {
+    background: variables.$color-primary-hover;
+  }
 
-    &:disabled {
-        background: #ccc; 
-        cursor: not-allowed; 
-    }
+  &:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+  }
 }
