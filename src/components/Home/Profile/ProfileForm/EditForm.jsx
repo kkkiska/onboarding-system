@@ -27,6 +27,7 @@ const EditForm = ({ formData, handleChange, handleSubmit }) => {
       <FormTextarea
         id="about"
         label="О себе"
+        placeholder="Расскажите немного о себе..."
         value={formData.about}
         onChange={(value) => handleChange("about", value)}
       />

@@ -13,7 +13,6 @@ import Documents from "./pages/Documents/Documents";
 import DepartmentsList from "./pages/Departments/DepartmentsList";
 import Users from "./pages/Users/Users";
 import UserPage from "./pages/Users/UserPage";
-import { Company } from "./models/Company";
 
 function App() {
   return (

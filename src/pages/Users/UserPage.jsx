@@ -1,12 +1,12 @@
 import { Link, useParams } from "react-router-dom";
 import Plate from "../../components/UI/Plate/Plate";
-import { users } from "../../mocks/users";
 import styles from "./UserPage.module.scss";
 import Tasks from "../Tasks/Tasks";
+import { company } from "../../mocks/mockData";
 
 const UserPage = () => {
   const { userId } = useParams();
-
+  const users = company.getEmployees();
   const user = users.find((user) => user.id === parseInt(userId));
 
   if (!user) {
@@ -32,10 +32,10 @@ const UserPage = () => {
               <strong>Email:</strong> {user.email}
             </p>
             <p>
-              <strong>Отдел:</strong> {user.department}
+              <strong>Отдел:</strong> {user.departmentName}
             </p>
             <p>
-              <strong>Роль:</strong> {user.role}
+              <strong>Роль:</strong> {user.roleName}
             </p>
             <p>
               <strong>Дата регистрации:</strong> {user.regDate}
@@ -43,7 +43,7 @@ const UserPage = () => {
           </div>
         </div>
       </Plate>
-      <Tasks />
+      {user.role === "trainee" && <Tasks userId={userId} />}
     </>
   );
 };

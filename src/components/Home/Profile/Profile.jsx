@@ -1,4 +1,3 @@
-import exit from "../../../assets/images/exit.svg";
 import edit from "../../../assets/images/edit.svg";
 import Plate from "../../UI/Plate/Plate";
 import styles from "./Profile.module.scss";

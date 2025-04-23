@@ -18,6 +18,7 @@ export class Department {
     if (employee.role === "head") {
       this.setHead(employee);
     }
+    employee._departmentName = this.name;
 
     return true;
   }
@@ -38,6 +39,7 @@ export class Department {
       this._headId = null;
     }
 
+    employee._departmentName = null;
     return true;
   }
 

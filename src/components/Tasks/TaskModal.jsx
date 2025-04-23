@@ -1,9 +1,9 @@
+import { company } from "../../mocks/mockData";
 import Modal from "../Modal";
 import BlueButton from "../UI/Button/BlueButton";
 
 const TaskModal = ({ task, onClose, onComplete, onReturn }) => {
   if (!task) return null;
-  console.log(task);
 
   return (
     <Modal closeModal={onClose}>
@@ -15,11 +15,15 @@ const TaskModal = ({ task, onClose, onComplete, onReturn }) => {
         </div>
         <div className="task-modal-date">Крайний срок: {task.dateDeadline}</div>
         <div className="task-modal-interaction">
-          {(task.status === "inWork" || task.status === "overdue") && (
-            <BlueButton onClick={onComplete}>Завершить</BlueButton>
-          )}
-          {task.status === "waiting" && (
+          {(task.status === "inWork" || task.status === "overdue") &&
+            company.hasRole("trainee") && (
+              <BlueButton onClick={onComplete}>Завершить</BlueButton>
+            )}
+          {task.status === "waiting" && company.hasRole("trainee") && (
             <BlueButton onClick={onReturn}>Вернуть в работу</BlueButton>
+          )}
+          {task.status === "waiting" && company.hasRole("mentor") && (
+            <BlueButton onClick={onComplete}>Закрыть задачу</BlueButton>
           )}
           {task.status === "completed" && <div>Задача завершена</div>}
         </div>

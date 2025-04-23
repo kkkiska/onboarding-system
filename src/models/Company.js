@@ -5,6 +5,7 @@ export class Company {
   constructor() {
     this._departments = new Map();
     this._employees = new Map();
+    this._currentUser = null;
   }
 
   createDepartment(data) {
@@ -20,6 +21,7 @@ export class Company {
   hireEmployee(data) {
     const employee = UserFactory.create(data);
     this._employees.set(employee.id, employee);
+    employee.setCompany(this);
 
     if (data.departmentId) {
       const department = this._departments.get(data.departmentId);
@@ -53,8 +55,74 @@ export class Company {
     );
   }
 
+  login(userId) {
+    const user = this.getEmployee(userId);
+    if (user) {
+      this._currentUser = user;
+      return user;
+    }
+    return null;
+  }
+
+  logout() {
+    this._currentUser = null;
+  }
+
+  get currentUser() {
+    return this._currentUser;
+  }
+
+  hasRole(role) {
+    return this._currentUser?.role === role;
+  }
+
+  getEmployees(filters = {}) {
+    let employees = Array.from(this._employees.values());
+
+    if (filters.departmentId !== undefined) {
+      employees = employees.filter((emp) => {
+        const deptId = emp._departmentId;
+        return (
+          deptId !== undefined &&
+          Number(deptId) === Number(filters.departmentId)
+        );
+      });
+    }
+
+    if (filters.role) {
+      employees = employees.filter((emp) => emp.role === filters.role);
+    }
+
+    if (filters.search) {
+      const searchTerm = filters.search.toLowerCase();
+      employees = employees.filter(
+        (emp) =>
+          emp.name.toLowerCase().includes(searchTerm) ||
+          (emp.position && emp.position.toLowerCase().includes(searchTerm))
+      );
+    }
+
+    return employees;
+  }
+
   getEmployee(id) {
     return this._employees.get(id);
+  }
+
+  getDepartments(filters = {}) {
+    let departments = Array.from(this._departments.values());
+
+    if (filters.search) {
+      const searchTerm = filters.search.toLowerCase();
+      departments = departments.filter(
+        (dept) =>
+          dept.name.toLowerCase().includes(searchTerm) ||
+          (dept.description &&
+            dept.description.toLowerCase().includes(searchTerm))
+      );
+    }
+
+    return departments;
   }
 
   getDepartment(id) {

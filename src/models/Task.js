@@ -30,8 +30,12 @@ export class Task {
     this._rating = rating;
   }
 
-  get status() {
+  get statusName() {
     return TASK_STATUSES[this._status] || this._status;
+  }
+
+  get status() {
+    return this._status;
   }
 
   get rating() {

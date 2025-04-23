@@ -1,6 +1,6 @@
 import styles from "./ProfileForm.module.scss";
 
-const FormTextarea = ({ id, label, value, onChange }) => (
+const FormTextarea = ({ id, label, value, onChange, placeholder }) => (
   <div className={styles["form-group"]}>
     <label className={styles["form-label"]} htmlFor={id}>
       {label}
@@ -9,7 +9,7 @@ const FormTextarea = ({ id, label, value, onChange }) => (
       className={styles["form-textarea"]}
       id={id}
       rows="3"
-      placeholder="Расскажите немного о себе..."
+      placeholder={placeholder}
       value={value}
       onChange={(e) => onChange(e.target.value)}
     />

@@ -12,10 +12,12 @@ const User = ({ user }) => {
         <div className={styles["user-email"]}>{user.email}</div>
       </div>
       <div className={styles["col-dept"]}>
-        <span className={styles["department-badge"]}>{user.department}</span>
+        <span className={styles["department-badge"]}>
+          {user.departmentName}
+        </span>
       </div>
       <div className={styles["col-role"]}>
-        <span className={styles["role-badge"]}>{user.role}</span>
+        <span className={styles["role-badge"]}>{user.roleName}</span>
       </div>
       <div className={styles["col-regDate"]}>{user.regDate}</div>
     </Link>

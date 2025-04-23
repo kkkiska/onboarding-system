@@ -3,21 +3,22 @@ import { useNavigate, useParams } from "react-router-dom";
 import AboutDepartment from "../../components/Departments/AboutDepartment";
 import Structure from "../../components/Departments/Structure";
 import UserModal from "../../components/Departments/UserModal";
-import { currentUser, departments, userInfo } from "../../mocks/mock-data";
+import { company } from "../../mocks/mockData";
 
 const DepartmentPage = () => {
   const [selectedUser, setSelectedUser] = useState(null);
   const { departmentId } = useParams();
   const navigate = useNavigate();
-
+  const currentUser = company.currentUser;
+  const currentDept = company.getDepartment(parseInt(departmentId));
   useEffect(() => {
     if (
-      currentUser.isTrainee() &&
-      userInfo.departmentId !== parseInt(departmentId)
+      !company.hasRole("hr") &&
+      currentUser.departmentId !== parseInt(departmentId)
     ) {
-      navigate(`/departments/${userInfo.departmentId}`);
+      navigate(`/departments/${currentUser.departmentId}`);
     }
-  }, [currentUser, userInfo, departmentId, navigate]);
+  }, [currentUser, company, departmentId, navigate]);
 
   const handleUserClick = (user) => {
     setSelectedUser(user);
@@ -27,16 +28,17 @@ const DepartmentPage = () => {
     setSelectedUser(null);
   };
 
+  if (!currentDept) {
+    return <>Такого отдела не существует</>;
+  }
+
   return (
     <>
       <AboutDepartment
-        departmentName={departments[departmentId].name}
-        description={departments[departmentId].description}
+        departmentName={currentDept.name}
+        description={currentDept.description}
       />
-      <Structure
-        employees={departments[departmentId].employees}
-        onUserClick={handleUserClick}
-      />
+      <Structure dept={currentDept} onUserClick={handleUserClick} />
       <UserModal user={selectedUser} onClose={handleModalClose} />
     </>
   );

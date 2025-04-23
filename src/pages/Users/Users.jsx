@@ -1,20 +1,31 @@
 import { useState } from "react";
 import Plate from "../../components/UI/Plate/Plate";
 import styles from "./Users.module.scss";
-import { currentUser, departments } from "../../mocks/mock-data";
+import { currentUser } from "../../mocks/mock-data";
 import BlueButton from "../../components/UI/Button/BlueButton";
 import UsersSidebar from "../../components/Users/UsersSidebal";
 import UserTable from "../../components/Users/UsersTable";
 import { users } from "../../mocks/users";
+import { company } from "../../mocks/mockData";
 
 const Users = () => {
-  const [activeTab, setActiveTab] = useState("all");
-  const isHr = currentUser.isHR();
+  const currentUser = company.currentUser;
+  const [activeTab, setActiveTab] = useState(() => {
+    return company.hasRole("hr") ? currentUser.departmentId : "nobar";
+  });
+  const isHr = company.hasRole("hr");
+  const departments = company.getDepartments();
+  let filteredUsers;
+  if (activeTab !== "nobar") {
+    filteredUsers = company.getEmployees({
+      departmentId: activeTab,
+    });
+  } else {
+    filteredUsers = currentUser.getSubordinates(company);
+    console.log(filteredUsers);
+  }
 
-  const filteredUsers =
-    activeTab === "all"
-      ? users
-      : users.filter((user) => user.department === activeTab);
+  console.log(filteredUsers);
 
   return (
     <Plate className={styles["container"]}>

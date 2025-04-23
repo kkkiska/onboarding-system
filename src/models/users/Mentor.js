@@ -1,3 +1,4 @@
+import { Company } from "../Company";
 import { BaseUser } from "./BaseUser";
 
 export class Mentor extends BaseUser {
@@ -11,5 +12,15 @@ export class Mentor extends BaseUser {
       throw new Error("Можно добавлять только стажёров");
     }
     this._subordinatesIds.push(user.id);
+  }
+
+  getSubordinates(company) {
+    if (!company || !(company instanceof Company)) {
+      throw new Error("Необходим экземпляр Company");
+    }
+
+    return this._subordinatesIds
+      .map((id) => company.getEmployee(id))
+      .filter((user) => user?.role === "trainee");
   }
 }

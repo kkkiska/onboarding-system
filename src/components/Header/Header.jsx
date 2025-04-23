@@ -2,13 +2,13 @@ import styles from "./Header.module.scss";
 import logo from "../../assets/images/logo.png";
 import { NavLink, Link } from "react-router-dom";
 import { getNavLinkClass } from "../../utils/classNames";
-import { cards, userInfo } from "../../mocks/mock-data";
-import exit from "../../assets/images/exit.svg";
+import { cards } from "../../mocks/mock-data";
 import Plate from "../UI/Plate/Plate";
 import ExitButton from "../ExitButton";
+import { company } from "../../mocks/mockData";
 
 const Header = () => {
-  const { surname, name, avatar } = userInfo;
+  const { name, avatar } = company.currentUser;
 
   return (
     <header className={styles["header"]}>
@@ -25,7 +25,7 @@ const Header = () => {
               getNavLinkClass(
                 props,
                 styles["header__nav-item"],
-                styles["active"],
+                styles["active"]
               )
             }
           >
@@ -37,9 +37,7 @@ const Header = () => {
       <Plate className={styles["profile"]}>
         <Link to="/home" className={styles["profile-info"]}>
           <img className={styles["profile-avatar"]} src={avatar} alt="" />
-          <div className={styles["profile-name"]}>
-            {surname} {name}
-          </div>
+          <div className={styles["profile-name"]}>{name}</div>
         </Link>
         <ExitButton />
       </Plate>

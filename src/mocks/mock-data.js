@@ -1,9 +1,10 @@
-import company from "../assets/images/company.svg";
+import companyImg from "../assets/images/company.svg";
 import tasks from "../assets/images/tasks.svg";
 import team from "../assets/images/team.svg";
 import doc from "../assets/images/doc.svg";
 import users from "../assets/images/users.svg";
 import avatar from "../assets/images/avatar.jpg";
+import { company } from "./mockData";
 
 class User {
   constructor(role) {
@@ -62,7 +63,7 @@ const allCards = [
   {
     title: "О компании",
     subtitle: "История, миссия и ценности компании",
-    img: company,
+    img: companyImg,
     path: "/about",
   },
   {
@@ -257,6 +258,7 @@ export const departments = [
 ];
 
 export const currentUser = new User("mentor");
-
-export const cards = currentUser.getCards();
+export const cards = roles[company.currentUser.role].cardsId.map(
+  (cardId) => allCards[cardId]
+);
 export const userInfo = currentUser.getUserInfo();

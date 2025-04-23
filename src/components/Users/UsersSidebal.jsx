@@ -12,7 +12,7 @@ const UsersSidebar = ({ departments, activeTab, setActiveTab }) => {
                 className={`${styles["department-tab"]} ${
                   activeTab === dept.id ? styles["active"] : ""
                 }`}
-                onClick={() => setActiveTab(dept.name)}
+                onClick={() => setActiveTab(dept.id)}
               >
                 {dept.name}
               </button>

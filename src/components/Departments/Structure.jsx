@@ -3,12 +3,13 @@ import styles from "../../pages/Departments/Department.module.scss";
 import Card from "./Card";
 import { roleTitles } from "../../mocks/mock-data";
 
-const Structure = ({ employees, onUserClick }) => {
+const Structure = ({ onUserClick, dept }) => {
   const roleGroups = Object.entries({
-    head: employees.head,
-    mentors: employees.mentors,
-    others: employees.others,
+    head: dept.getEmployees({ role: "head" }),
+    mentors: dept.getEmployees({ role: "mentor" }),
+    others: dept.getEmployees({ role: "trainee" }),
   });
+  console.log(roleGroups);
   return (
     <Plate className={styles["structure"]}>
       <div className={styles["structure-title"]}>Состав отдела</div>
